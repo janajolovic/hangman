@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Figure from './components/Figure';
 import Header from './components/Header';
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <div className="game-container">
         <Figure />
-        <WrongLetters />
+        <WrongLetters wrongLetters={wrongLetters}/>
         <Word selectedWord={selectedWord} correctLetters={correctLetters}/>
         <Popup />
         <Notification />
