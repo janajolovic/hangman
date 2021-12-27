@@ -7,9 +7,10 @@ import Word from './components/Word';
 import WrongLetters from './components/WrongLetters';
 import Notification from './components/Notification';
 
+const words = ['programming', 'javascript', 'react', 'hangman'];
+let selectedWord = words[Math.floor(Math.random() * words.length)];
+
 function App() {
-  const words = ['programming', 'javascript', 'react', 'hangman'];
-  let selectedWord = words[Math.floor(Math.random() * words.length)];
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
@@ -27,7 +28,7 @@ function App() {
           }
         } else {
           if (!wrongLetters.includes(letter)) {
-            setWrongLetters(currentLetters => [...currentLetters, letter]);
+            setWrongLetters(wrongLetters => [...wrongLetters, letter]);
           } else {
             // show(setShowNotification);
           }
@@ -35,8 +36,9 @@ function App() {
       }
     }
     window.addEventListener('keydown', handleKeydown);
-  })
 
+    return () => window.removeEventListener('keydown', handleKeydown);
+  }, [correctLetters, wrongLetters, playable]);
   
   return (
     <div>
