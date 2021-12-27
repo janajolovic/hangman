@@ -6,6 +6,7 @@ import Popup from './components/Popup';
 import Word from './components/Word';
 import WrongLetters from './components/WrongLetters';
 import Notification from './components/Notification';
+import {showNotification as show} from "./helpers/helpers";
 
 const words = ['programming', 'javascript', 'react', 'hangman'];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -15,7 +16,7 @@ function App() {
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState([false]);
-  
+
   useEffect(() => {
     const handleKeydown = event => {
       const { key, keyCode } = event;
@@ -25,13 +26,13 @@ function App() {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            // show(setShowNotification);
+            show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
           } else {
-            // show(setShowNotification);
+            show(setShowNotification);
           }
         }
       }
