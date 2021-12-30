@@ -8,7 +8,7 @@ export function showNotification(setter) {
 export function checkWin(correct, wrong, word) {
     let status = 'win';
 
-    word.split("").forEach(leter => {
+    word.split("").forEach(letter => {
         if(!correct.includes(letter))
             status = '';
     })
