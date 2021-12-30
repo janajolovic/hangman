@@ -3,9 +3,9 @@ import React from "react";
 export function showNotification(setter) {
     setter(true);
     setTimeout(() => {
-        setter(false);
-    }, 1000)
-}
+      setter(false);
+    }, 2000);
+  }
 
 export function checkWin(correct, wrong, word) {
     let status = 'win';

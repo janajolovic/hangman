@@ -46,7 +46,7 @@ function App() {
     setPlayable(true);
     setWrongLetters([]);
     setCorrectLetters([]);
-    const random = Math.random() * words.length);
+    const random = Math.random() * words.length;
     selectedWord = words[random];
   }
   
