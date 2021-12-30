@@ -1,3 +1,5 @@
+import React from "react";
+
 export function showNotification(setter) {
     setter(true);
     setTimeout(() => {
